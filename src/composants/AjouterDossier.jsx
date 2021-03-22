@@ -10,12 +10,12 @@ import { TwitterPicker } from 'react-color';
 export default function AjouterDossier({ouvert, setOuvert, gererAjout}) {
   const [nom, setNom] = useState('');
   const [couverture, setCouverture] = useState('');
-  const [couleur, setCouleur] = useState('#537169');
+  const [couleur, setCouleur] = useState('#673ab7');
 
   function viderChamps() {
     setNom('');
     setCouverture('');
-    setCouleur('#537169');
+    setCouleur('#673ab7');
   }
 
   return (
@@ -34,7 +34,7 @@ export default function AjouterDossier({ouvert, setOuvert, gererAjout}) {
             defaultValue={nom}
           />
           <TextField
-            margin="dense"
+            margin="normal"
             id="urlImage"
             label="Adresse de l'image de couverture"
             type="text"
@@ -46,14 +46,28 @@ export default function AjouterDossier({ouvert, setOuvert, gererAjout}) {
             width="100%" 
             triangle="hide" 
             onChangeComplete={(couleur, e) => setCouleur(couleur.hex)}
-            color={couleur}
+            colors={['#e91e63', '#9c27b0', '#2196f3', '#00bcd4', '#009688', '#ff9800']}
           />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={()=>{setOuvert(false); viderChamps()}} color="primary">
+        <DialogActions style={{ padding: "20px 24px"}} >
+          <Button 
+            onClick={()=>{setOuvert(false); viderChamps()}} 
+            color="white"
+            style={{
+              color: "#ffffff",
+              backgroundColor: "#a30000",
+              padding: "6px 15px"
+            }}>
             Annuler
           </Button>
-          <Button onClick={() => {nom !== '' && gererAjout(nom, couverture, couleur); viderChamps(); }} color="primary">
+          <Button 
+            onClick={() => {nom !== '' && gererAjout(nom, couverture, couleur); viderChamps(); }} 
+            color="white"
+            style={{
+              color: "#ffffff",
+              backgroundColor: "#009624",
+              padding: "6px 15px"
+            }}>
             Ajouter
           </Button>
         </DialogActions>
